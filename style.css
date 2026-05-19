@@ -16,3 +16,8 @@ ul{
     display:flex;
     justify-content: space-between;
 }
+
+.cabecalho-item-lista{
+    padding:15px;
+    list-style-type: none;
+}

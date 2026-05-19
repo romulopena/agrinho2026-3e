@@ -1,0 +1,18 @@
+/* Reset*/
+*{
+    margin:0; /*margem do body zerada*/
+    padding:0;/*espaço interno do body zerado*/
+}
+
+.cabecalho{
+    background-color: bisque;/*cor de fundo*/
+    display:flex; /*disposição dos elementos flexíveis*/
+    justify-content: space-between;/*justificar conteúdo c/ espaços entre*/
+    align-items: center;/*alinhamento vertical dos itens no centro*/
+    height: 100px;/*altura da área do cabeçalho em 100 pixels*/
+}
+
+ul{
+    display:flex;
+    justify-content: space-between;
+}

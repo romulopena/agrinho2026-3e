@@ -1,54 +1,99 @@
 /* Reset*/
-*{
-    margin:0; /*margem do body zerada*/
-    padding:0;/*espaço interno do body zerado*/
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box; /* Garante que padding não quebre a largura */
 }
 
-.cabecalho{
-    background-color: #c4ffe0;/*cor de fundo*/
-    display:flex; /*disposição dos elementos flexíveis*/
-    justify-content: space-between;/*justificar conteúdo c/ espaços entre*/
-    align-items: center;/*alinhamento vertical dos itens no centro*/
-    height: 100px;/*altura da área do cabeçalho em 100 pixels*/
-}
-ul{
-    display:flex; /*flexibilidade dos elementos da lista ul*/
-    justify-content: space-between; /*espaço entre os elementos*/
-}
-.cabecalho-item-lista{
-    padding:15px; /*espaçamento interno de cada item de 15pixels*/
-    list-style-type: none;/*eliminando o ponto antes de cada item*/
+/* ─── VARIÁVEIS DE COR (Modo Claro Padrão) ─── */
+:root {
+    --cor-fundo-cabecalho: #c4ffe0;
+    --cor-fundo-corpo: #ffffff;
+    --cor-texto-principal: #000000;
+    --cor-texto-secundario: #7f8c8d;
+    --cor-botao-sustentavel: #acff2f43;
 }
 
-.conteudo-secao-sustentavel{
+/* ─── VARIÁVEIS DE COR (Modo Escuro) ─── */
+body.dark-mode {
+    --cor-fundo-cabecalho: #11221a;
+    --cor-fundo-corpo: #121212;
+    --cor-texto-principal: #ffffff;
+    --cor-texto-secundario: #b3b3b3;
+    --cor-botao-sustentavel: #2ecc7133;
+}
+
+/* Aplicando o fundo padrão ao body */
+body {
+    background-color: var(--cor-fundo-corpo);
+    color: var(--cor-texto-principal);
+    transition: background-color 0.3s, color 0.3s; /* Transição suave */
+    font-family: sans-serif; /* Fonte base */
+}
+
+.cabecalho {
+    background-color: var(--cor-fundo-cabecalho);
+    display: flex; 
+    justify-content: space-between;
+    align-items: center;
+    height: 100px;
+    padding: 0 5%;
+    transition: background-color 0.3s;
+}
+
+ul {
+    display: flex; 
+    justify-content: space-between;
+}
+
+.cabecalho-item-lista {
+    padding: 15px; 
+    list-style-type: none;
+    color: var(--cor-texto-principal);
+}
+
+/* Estilização básica do botão do cabeçalho */
+.cabecalho-titulo-botao {
+    padding: 8px 15px;
+    cursor: pointer;
+    border-radius: 20px;
+    border: 1px solid var(--cor-texto-principal);
+    background: transparent;
+    color: var(--cor-texto-principal);
+    font-weight: bold;
+    transition: all 0.3s;
+}
+
+.conteudo-secao-sustentavel {
     display: flex;
     align-items: center;
     justify-content: space-between;
-    padding: 60px 5%; /*espaço interno de 60pixels e 5%*/
-    min-height: 80vh; /*altura mínima de 80*/
-    gap: 30px; /*espaço vazio de 30px  */
+    padding: 60px 5%; 
+    min-height: 80vh; 
+    gap: 30px; 
 }
-.conteudo-sustentavel-texto{
+
+.conteudo-sustentavel-texto {
     flex: 1;
 }
 
-.conteudo-sustentavel-titulo{
+.conteudo-sustentavel-titulo {
     font-size: 3rem;
-    color: black;
+    color: var(--cor-texto-principal);
     line-height: 1.2;
     margin-bottom: 20px;
 }
 
-.conteudo-sustentavel-paragrafo{
+.conteudo-sustentavel-paragrafo {
     font-size: 1.2rem;
     margin-bottom: 30px;
-    color: #7f8c8d;
+    color: var(--cor-texto-secundario);
 }
 
-.sustentavel-botao{
+.sustentavel-botao {
     display: inline-block;
-    background-color: #acff2f43;
-    color: black;
+    background-color: var(--cor-botao-sustentavel);
+    color: var(--cor-texto-principal);
     text-decoration: none;
     padding: 15px 35px;
     border-radius: 30px;
@@ -57,12 +102,14 @@ ul{
     box-shadow: 0 4px 15px #2ecc7166;
     transition: all 0.3s;
 }
-.conteudo-sustentavel-imagem{
+
+.conteudo-sustentavel-imagem {
     flex: 1;
     display: flex;
     justify-content: center;
 }
-.imagem-sustentavel{
+
+.imagem-sustentavel {
     width: 100%;
     max-width: 550px;
     height: auto;
@@ -70,50 +117,82 @@ ul{
     box-shadow: 0 8px 24px #0000001a;
 }
 
-.conteudo-solucao{
-    display: block;
-    unicode-bidi: isolate;
+/* Seção Solução */
+.conteudo-solucao {
+    padding: 40px 5%;
 }
 
-.titulo-solucao{
-    display: block;
-    font-size: 1.5em;
-    margin-block-start: 0.83em;
-    margin-block-end: 0.83em;
-    margin-inline-start: 0px;
-    margin-inline-end: 0px;
-    font-weight: bold;
-    unicode-bidi: isolate;
+.titulo-solucao {
+    font-size: 2rem;
+    margin-bottom: 15px;
+    color: var(--cor-texto-principal);
 }
 
-.paragrafo-solucao{
-    display: block;
-    margin-block-start: 1em;
-    margin-block-end: 1em;
-    margin-inline-start: 0px;
-    margin-inline-end: 0px;
-    unicode-bidi: isolate;
+.paragrafo-solucao {
+    margin-bottom: 20px;
+    color: var(--cor-texto-secundario);
 }
 
-.lista-solucoes{
-    display: block;
-    list-style-type: disc;
-    margin-block-start: 1em;
-    margin-block-end: 1em;
-    padding-inline-start: 40px;
-    unicode-bidi: isolate;
+.lista-solucoes {
+    margin-bottom: 25px;
+    padding-left: 20px;
+    color: var(--cor-texto-principal);
 }
 
-.item-solucao{
-    display: list-item;
-    unicode-bidi: isolate;
+.item-solucao {
+    margin-bottom: 10px;
 }
 
-.botao-simular{
+.botao-simular {
     background-color: orange;
     color: white;
     border: none;
     padding: 12px 25px;
     border-radius: 8px;
     font-weight: bold;
+    cursor: pointer;
+}
+
+
+/* ─── RESPONSIVIDADE (Media Queries) ─── */
+
+/* Para Tablets e Telas Médias (Até 768px) */
+@media (max-width: 768px) {
+    .cabecalho {
+        height: auto;
+        flex-direction: column;
+        padding: 15px;
+        gap: 15px;
+    }
+
+    .conteudo-secao-sustentavel {
+        flex-direction: column-reverse; /* Imagem fica no topo no celular */
+        text-align: center;
+        padding: 40px 5%;
+    }
+
+    .conteudo-sustentavel-titulo {
+        font-size: 2.2rem;
+    }
+}
+
+/* Para Celulares Pequenos (Até 480px) */
+@media (max-width: 480px) {
+    ul {
+        flex-direction: column;
+        align-items: center;
+    }
+    
+    .cabecalho-item-lista {
+        padding: 5px;
+    }
+
+    .conteudo-sustentavel-titulo {
+        font-size: 1.8rem;
+    }
+
+    .sustentavel-botao, .botao-simular {
+        width: 100%; /* Botões ocupam a largura total na tela pequena */
+        text-align: center;
+    }
 }
